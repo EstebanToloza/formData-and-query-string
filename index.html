@@ -5,41 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="custom__search-filter">
-        <form id="advanced-filter">
-    
+        <form id="cs__advanced-filter">
             <!-- <input type="number" min="1" max="20" name="guests" class="d-none" class="guests"> -->
-            <input type="date" name="check-in" class="check-in">
-            <input type="date" name="check-out" class="check-out">
-            <label>Tipo de propiedad
-                <select name="type" id="cs__type"></select>
-            </label>
-            <label>Huéspedes
-                <select name="guests" id="cs__guests"></select>
-            </label>
+            <div id="cs__custom-selects">
+                <label>Check In
+                    <input type="date" name="check-in" class="check-in">
+                </label>
+                <label>Check Out
+                    <input type="date" name="check-out" class="check-out">
+                </label>
+                <label>Huéspedes
+                    <select name="guests" id="cs__guests"></select>
+                </label>
+                <label>Tipo de propiedad
+                    <select name="type" id="cs__type"></select>
+                </label>
+                <label>Tarifa máxima
+                    <select name="max-price" id="cs__max-price"></select>
+                </label>
+                <label>Cantidad de baños
+                    <select name="bathrooms" id="cs__bathrooms"></select>
+                </label>
+            </div>
             <div class="checkboxes"></div>
-            <label>Tarifa máxima
-                <select name="max-price" id="cs__max-price"></select>
-            </label>
-            <label>Cantidad de baños
-                <select name="bathrooms" id="cs__bathrooms"></select>
-            </label>
-            
-        
-            <input type="submit">
+            <input type="submit" id="cs__submit" value="Filtar propiedades">
         </form>
     </div>
-
-
-
-
-
-
-
-
 
     <script src="./index.js"></script>
     

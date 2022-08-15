@@ -53,7 +53,7 @@
 
 
         ///////////////////////
-        const $form = document.querySelector('#advanced-filter');
+        const $form = document.querySelector('#cs__advanced-filter');
         const initialSelectedValues = window.location.href;
         const initualQuerys = new URLSearchParams(window.location.search)
 
@@ -91,7 +91,7 @@
         for (let priceValue of propertyValues) {
             let value, name
             if (isNaN(priceValue)) {
-                value = "";
+                value = null;
                 name = priceValue
             } else {
                 value = priceValue;
@@ -105,7 +105,6 @@
 
         const selectGuests = document.getElementById("cs__guests");
         let optionsGuests = ""
-
         for (let guests of propertyGuests) {
             optionsGuests += `
                 <option name="guests" id=${guests} value=${guests}>${guests}</option>
@@ -115,7 +114,6 @@
 
         const selectBathrooms = document.getElementById("cs__bathrooms");
         let optionsBathrooms = ""
-
         for (let bathrooms of propertyBathrooms) {
             optionsBathrooms += `
                 <option name="Bathrooms" id=${bathrooms} value=${bathrooms}>${bathrooms}</option>
@@ -125,7 +123,6 @@
 
         const selectType = document.getElementById("cs__type");
         let optionsType = ""
-
         for (let type of propertyTypes) {
             let nameType = type.charAt(0).toUpperCase() + type.slice(1);
             optionsType += `
@@ -188,6 +185,7 @@
             }); */
 
             console.log("query params:", queryParams)
+            window.location.search = queryParams
             
         });
 
