@@ -1,9 +1,25 @@
-
         //obtengo contenedor de search form
         const searchContainer = document.getElementById("custom__search-filter");
+
+        //window Width and mobile display
+        const windowWidth = window.innerWidth;
+        const $form = document.querySelector('#cs__advanced-filter');
+        const showfilterBtn = document.querySelector("#cs__filtros-mobile")
+        const isMobile = windowWidth < 901
+
+        if(isMobile) {
+            $form.classList.add("cs_mobile-hidden")
+        }
+
+        showfilterBtn.addEventListener("click", showFilterMobile)
+
+        function showFilterMobile() {
+            $form.classList.toggle("cs_mobile-hidden")
+        }
+
         
         //defino categorias para filtros: features, type, guests, check-in-out
-        const propertyTypes = ["casa", "departamento"];
+        const propertyBedrooms = [1,2,3,4,5,6,7,8];
         const propertyFeatures = [
             {name: "Aire Acondicionado", slug: "aire-acondicionado"},
             {name: "Alarma", slug: "alarma"},
@@ -34,7 +50,7 @@
 
         const propertyGuests = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
-        const propertyBathrooms = [1,2,3,4,5,6,7,8,9,10]
+        const propertyBathrooms = [1,2,3,4,5,6,7,8,9]
 
         //defino variable para contenido de filtros
         let body = "";
@@ -53,7 +69,6 @@
 
 
         ///////////////////////
-        const $form = document.querySelector('#cs__advanced-filter');
         const initialSelectedValues = window.location.href;
         const initualQuerys = new URLSearchParams(window.location.search)
 
@@ -121,15 +136,14 @@
         }
         selectBathrooms.innerHTML = optionsBathrooms;
 
-        const selectType = document.getElementById("cs__type");
-        let optionsType = ""
-        for (let type of propertyTypes) {
-            let nameType = type.charAt(0).toUpperCase() + type.slice(1);
-            optionsType += `
-                <option name="Type" id=${type} value=${type}>${nameType}</option>
+        const selectBedrooms = document.getElementById("cs__bedrooms");
+        let optionsBedrooms = ""
+        for (let bedroom of propertyBedrooms) {
+            optionsBedrooms += `
+                <option name="bedrooms" id=${bedroom} value=${bedroom}>${bedroom}</option>
             `
         }
-        selectType.innerHTML = optionsType;
+        selectBedrooms.innerHTML = optionsBedrooms;
 
 
 
@@ -147,10 +161,13 @@
             if (key.includes("bathrooms") && document.getElementById(val)) {
                 selectBathrooms.value = val
             }  
-            if (key.includes("type") && document.getElementById(val)) {
-                selectType.value = val
+            if (key.includes("bedrooms") && document.getElementById(val)) {
+                selectBedrooms.value = val
             }  
         }
+
+        //dropdown, only mobile
+
         
 
 
@@ -173,6 +190,10 @@
             if (queryParams.includes("type")) {
                 queryParams = queryParams.replaceAll("type", "type%5B%5D")
             }
+
+           /*  if (queryParams.includes("bedrooms")) {
+                console.log("funciona")
+            } */
             //queryParams.set("myParam", "myValue");
 
             //history.replaceState(null, null, "?"+ queryParams.toString().replaceAll("features", "features%5B%5D"));

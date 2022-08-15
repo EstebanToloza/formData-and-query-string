@@ -56,10 +56,35 @@
     cursor: pointer;
 }
 
+#cs__filtros-mobile {
+    display: none;
+}
+.cs_mobile-hidden {
+    display: none !important;
+}
+
 /* responsive */
 @media(max-width: 900px) {
     #cs__advanced-filter #cs__custom-selects {
         grid-template-columns: 1fr 1fr
+    }
+    #cs__filtros-mobile {
+        display: block;
+        height: 53px;
+        width: 200px;
+        background: #1cb2ff;
+        color: #fff;
+        border: none;
+        margin: auto;
+    }
+    #cs__filtros-mobile::after {
+        content: "<";
+        transform: rotate(270deg);
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cs__advanced-filter {
+        margin-top: 30px;
     }
 }
 @media(max-width: 600px) {
