@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="custom__search-filter">
-        <button id="cs__filtros-mobile">
-            Realizar búsqueda avanzada
-        </button>
-        <form id="cs__advanced-filter">
-            <!-- <input type="number" min="1" max="20" name="guests" class="d-none" class="guests"> -->
-            <div id="cs__custom-selects">
-                <label>Check In
-                    <input type="date" name="check-in" class="check-in">
-                </label>
-                <label>Check Out
-                    <input type="date" name="check-out" class="check-out">
-                </label>
-                <label>Huéspedes
-                    <select name="guests" id="cs__guests"></select>
-                </label>
-                <label>Dormitorios
-                    <select name="bedrooms" id="cs__bedrooms"></select>
-                </label>
-                <label>Tarifa máxima
-                    <select name="max-price" id="cs__max-price"></select>
-                </label>
-                <label>Cantidad de baños
-                    <select name="bathrooms" id="cs__bathrooms"></select>
-                </label>
-            </div>
-            <div class="checkboxes"></div>
-            <input type="submit" id="cs__submit" value="Filtar propiedades">
-        </form>
+      <button id="cs__filtros-mobile">Realizar búsqueda avanzada</button>
+      <form id="cs__advanced-filter">
+        <!-- <input type="number" min="1" max="20" name="guests" class="d-none" class="guests"> -->
+        <div id="cs__custom-selects">
+          <label
+            >Ubicación
+            <select name="location" id="cs__location"></select>
+          </label>
+          <label
+            >Check In
+            <input type="date" name="check-in" class="check-in" />
+          </label>
+          <label
+            >Check Out
+            <input type="date" name="check-out" class="check-out" />
+          </label>
+          <label
+            >Huéspedes
+            <select name="guests" id="cs__guests"></select>
+          </label>
+          <label
+            >Dormitorios
+            <select name="bedrooms" id="cs__bedrooms"></select>
+          </label>
+          <label
+            >Tarifa máxima
+            <select name="max-price" id="cs__max-price"></select>
+          </label>
+          <label
+            >Cantidad de baños
+            <select name="bathrooms" id="cs__bathrooms"></select>
+          </label>
+        </div>
+        <div class="checkboxes"></div>
+        <input type="submit" id="cs__submit" value="Filtar propiedades" />
+      </form>
     </div>
 
     <script src="./index.js"></script>
-    
-</body>
+  </body>
 </html>
