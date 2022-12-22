@@ -73,7 +73,24 @@ const propertyGuests = [
 
 const propertyBathrooms = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const propertyLocations = ['bariloche', 'san-martin-de-los-andes'];
+const propertyLocations = [
+  {
+    name: 'Bariloche',
+    slug: 'bariloche',
+  },
+  {
+    name: 'San Martín de los Andes',
+    slug: 'san-martin-de-los-andes',
+  },
+  {
+    name: 'Villa La Angostura',
+    slug: 'villa-la-angostura',
+  },
+  /* {
+    name: 'El Bolsón',
+    slug: 'el-bolson',
+  }, */
+];
 
 //defino variable para contenido de filtros
 let body = '';
@@ -171,8 +188,9 @@ selectBedrooms.innerHTML = optionsBedrooms;
 const selectLocations = document.getElementById('cs__location');
 let optionsLocations = '';
 for (let location of propertyLocations) {
+  let { name, slug } = location;
   optionsLocations += `
-                <option name="location" id=${location} value=${location}>${location}</option>
+                <option name="location" id=${slug} value=${slug}>${name}</option>
             `;
 }
 selectLocations.innerHTML = optionsLocations;
@@ -194,6 +212,9 @@ for (const [key, val] of initualQuerys) {
   if (key.includes('bedrooms') && document.getElementById(val)) {
     selectBedrooms.value = val;
   }
+  if (key.includes('location') && document.getElementById(val)) {
+    selectLocations.value = val;
+  }
 }
 
 //dropdown, only mobile
@@ -212,7 +233,6 @@ $form.addEventListener('submit', (event) => {
 
   if (queryParams.includes('features')) {
     queryParams = queryParams.replaceAll('features', 'features%5B%5D');
-    console.log('incluye');
   }
 
   if (queryParams.includes('type')) {
